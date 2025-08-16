@@ -203,7 +203,7 @@ const Feed = () => {
                       <p className='text-[13px] lg:py-1'>{update.time}</p>
                     </div>
 
-                    <p className='text-xs py-1 line-clamp-1   '>{update.description}</p>
+                    <p className='text-xs py-1 line-clamp-1 lg:line-clamp-none  '>{update.description}</p>
                     <button className=' py-1 px-4 mt-1  bg-black rounded-md text-white capitalize text-sm hidden lg:block '>{update.buttonText}</button>
                   </div>
                   <div>
