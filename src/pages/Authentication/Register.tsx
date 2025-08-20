@@ -9,10 +9,18 @@ import UserForm from './RegistrationForms/UserForm.tsx';
 import AddressFrom from './RegistrationForms/AddressFrom.tsx';
 import Department from './RegistrationForms/Department.tsx';
 import LearningGoals from './RegistrationForms/LearningGoals.tsx';
+// @ts-ignore
+import studentImg from '../../Assets/images/student.jpeg'
+// @ts-ignore
+import gardians from '../../Assets/images/family.jpeg'
+// @ts-ignore
+import instructor from '../../Assets/images/instructor.jpeg'
+// @ts-ignore
+import admin from '../../Assets/images/admin.jpeg'
 
 const Register = () => {
   // Using UserMultiStepForm to manage steps
-  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } = UserMultiStepForm([<UserForm />, <AddressFrom />, <Department />,<LearningGoals/>])
+  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } = UserMultiStepForm([<UserForm />, <AddressFrom />, <Department />, <LearningGoals />])
   return (
     <>
       <div className="w-full h-screen flex flex-col">
@@ -43,22 +51,22 @@ const Register = () => {
                   <h1 className="text-4xl font-bold lg:mt-2">Sign Up</h1>
                   <div className="mt-2 lg:mt-9">
                     <h3>Select Role:</h3>
-                    <div className="flex  cursor-pointer justify-between gap-2">
-                      <div className="flex justify-center mt-2 ">
-                        <PiStudentFill size={20} />
-                        <label className="ml-1 text-sm sm:text-sm md:text-base">Student</label>
+                    <div className="flex  cursor-pointer justify-between ">
+                      <div className="flex flex-col justify-center items-center mt-2 ">
+                        <img src={studentImg} alt="student" />
+                        <label className="ml-1  text-sm sm:text-sm md:text-base">Student</label>
                       </div>
-                      <div className="flex items-center mt-2 ">
-                        <PiGraduationCapFill size={20} />
-                        <label className="ml-1 text-sm sm:text-sm md:text-base">Teacher</label>
+                      <div className="flex flex-col items-center mt-2 ">
+                        <img src={gardians} alt="gardian" />
+                        <label className="ml-1  text-sm sm:text-sm md:text-base">Gardian</label>
                       </div>
-                      <div className="flex items-center mt-2">
-                        <LiaChalkboardTeacherSolid size={20} />
-                        <label className="ml-1 text-sm sm:text-sm md:text-base">Admin</label>
+                      <div className="flex flex-col items-center mt-2">
+                        <img src={instructor} alt="instructor" />
+                        <label className="ml-1 text-sm sm:text-sm md:text-base">Instructor</label>
                       </div>
-                      <div className="flex items-center mt-2 ">
-                        <FaUserTie size={20} />
-                        <label className="ml-1 text-sm sm:text-sm md:text-base">Guest</label>
+                      <div className="flex flex-col items-center mt-2 ">
+                        <img src={admin} alt="admin" />
+                        <label className="ml-1   text-sm sm:text-sm md:text-base">Admin</label>
                       </div>
                     </div>
                     <form className="">

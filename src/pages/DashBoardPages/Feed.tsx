@@ -173,7 +173,7 @@ const Feed = () => {
         </div>
         {/* <img src={eduverseLabsLogo} alt="Eduverse Labs Logo" className='max-w-20' /> */}
         <div className='flex items-center  '>
-          <div className='p-4 lg:p-2 cursor-pointer' onClick={() => setOpenNotification(true)} ><AiFillBell size={25} /></div>
+          <div className='p-4 lg:p-2 cursor-pointer' onClick={() => setOpenNotification((prev)=>(!prev))} ><AiFillBell size={25} /></div>
           <div className='items-center  text-black px-1 mr-10  h-10 p-4 rounded-lg border border-black hidden lg:flex'>
             <p className='px-4 py-2  '>Rolake</p>
             <p className='  text-2xl text-[#0CF37F]'><BsDot size={35} />
@@ -183,12 +183,10 @@ const Feed = () => {
         </div>
       </div>
       <div className=' px-3 lg:px-8 w-full relative '>
-        <div className='absolute right-0  mx-6 w-1/3  rounded-lg shadow-lg border border-gray-200 z-50'>
-          {/* <p className=' flex felx-wrap justify-center  text-gray-300 '><IoTriangleOutline />
-          </p> */}
-          <div className='bg-white p-2 rounded-lg shadow-md h-full w-full hidden'>
-            {<Notification />}
-          </div>
+        <div className=''>
+          <div className={`absolute right-4 -top-4 w-[95%] h-[90%] md:w-1/2 lg:w-1/3  rounded-lg shadow-lg border border-gray-200 z-50 bg-white ${openNotification ? 'block' : 'hidden'}`} ref={dropdownRef}>
+            <Notification />
+            </div>
         </div>
         <div className="grid grid-cols-2 lg:flex lg:flex-wrap gap-2 lg:gap-5  lg:my-4 w-full rounded-lg">
           {feedEvents.map((event) => (

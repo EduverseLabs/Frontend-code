@@ -58,7 +58,7 @@ const Notification = () => {
                                 <p><IoIosArrowDown /></p>
                             </div>
                             <h2 className='text-md font-semibold'>{notification.title}</h2>
-                            <p className='text-sm text-gray-600'>{notification.description}</p>
+                            <p className='text-sm text-gray-600 line-clamp-1'>{notification.description}</p>
                             {/* <span className='text-xs text-gray-400'>{notification.time}</span> */}
                         </div>
                     ))

@@ -3,6 +3,14 @@ import { PiStudentFill, PiGraduationCapFill } from "react-icons/pi";
 import { LiaChalkboardTeacherSolid } from "react-icons/lia";
 import { FaUserTie } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+// @ts-ignore
+import studentImg from '../../Assets/images/student.jpeg'
+// @ts-ignore
+import gardians from '../../Assets/images/family.jpeg'
+// @ts-ignore
+import instructor from '../../Assets/images/instructor.jpeg'
+// @ts-ignore
+import admin from '../../Assets/images/admin.jpeg'
 
 const Login = () => {
   return (
@@ -35,21 +43,21 @@ const Login = () => {
                   <div className="mt-2 lg:mt-9">
                     <h3>Select Role:</h3>
                     <div className="flex  cursor-pointer justify-between ">
-                      <div className="flex justify-center items-center mt-2 ">
-                        <PiStudentFill size={20} />
+                      <div className="flex flex-col justify-center items-center mt-2 ">
+                        <img src={studentImg} alt="student" />
                         <label className="ml-1  text-sm sm:text-sm md:text-base">Student</label>
                       </div>
-                      <div className="flex items-center mt-2 ">
-                        <PiGraduationCapFill size={20} />
-                        <label className="ml-1  text-sm sm:text-sm md:text-base">Teacher</label>
+                      <div className="flex flex-col items-center mt-2 ">
+                        <img src={gardians} alt="gardian" />
+                        <label className="ml-1  text-sm sm:text-sm md:text-base">Gardian</label>
                       </div>
-                      <div className="flex items-center mt-2">
-                        <LiaChalkboardTeacherSolid size={20} />
-                        <label className="ml-1 text-sm sm:text-sm md:text-base">Admin</label>
+                      <div className="flex flex-col items-center mt-2">
+                        <img src={instructor} alt="instructor" />
+                        <label className="ml-1 text-sm sm:text-sm md:text-base">Instructor</label>
                       </div>
-                      <div className="flex items-center mt-2 ">
-                        <FaUserTie size={20} />
-                        <label className="ml-1   text-sm sm:text-sm md:text-base">Guest</label>
+                      <div className="flex flex-col items-center mt-2 ">
+                        <img src={admin} alt="admin" />
+                        <label className="ml-1   text-sm sm:text-sm md:text-base">Admin</label>
                       </div>
                     </div>
                     <div className="">
@@ -65,7 +73,9 @@ const Login = () => {
                         <p className="text-sm text-blue-500 right-0 relative">Forget Password</p>
                       </div>
                       <div className="my-4 lg:my-10">
-                        <button className="bg-blue-500 p-3 w-full rounded-lg text-white">Sign in</button>
+                        <button className="bg-blue-500 p-3 w-full rounded-lg text-white">
+                          <Link to='/dashboard'>Sign in</Link>
+                        </button>
                       </div>
                       <div className=" justify-end flex lg:hidden ">
                         <p>No Account ?<span className="text-blue-500 text-sm ">Sign up</span></p>

@@ -26,9 +26,9 @@ const DashBoard = () => {
         <>
             <div className=' flex h-screen'>
                 <div className="bg-blue-600 w-2/12 p-4 h-screen text-white  hidden lg:flex lg:flex-row flex-col">
-                    <ul className="flex flex-col gap-2 my-6">
+                    <ul className="flex flex-col gap-2 my-6 w-full">
                         {sideMenuData.map((item, index) => (
-                            <li key={index} className="text-white p-2 hover:bg-blue-700 cursor-pointer">
+                            <li key={index} className="text-white p-2 hover:bg-white hover:text-black cursor-pointer w-full rounded-md transition-colors">
                                 {item.name}
                             </li>
 
