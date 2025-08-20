@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect, useRef } from 'react'
 import { IoMenuOutline } from "react-icons/io5";
 
 // @ts-ignore
@@ -21,6 +21,8 @@ import { AiFillBell } from 'react-icons/ai';
 import { BsDot } from 'react-icons/bs';
 import { FaPlus } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
+import { IoTriangleOutline } from "react-icons/io5";
+import Notification from './Notification.tsx';
 
 
 const Feed = () => {
@@ -64,7 +66,7 @@ const Feed = () => {
       time: "About 2 hours ago",
       color: "bg-blue-600",
       buttonText: "Start",
-      categories:"Assessment"
+      categories: "Assessment"
     },
     {
       id: 2,
@@ -73,34 +75,34 @@ const Feed = () => {
       time: "About 2 hours ago",
       color: "bg-red-600",
       buttonText: "join class",
-      categories:"Class"
-    },
-    {
-      id: 2,
-      title: "Upcoming Class",
-      description: "Advance Mathematics Starts in 30 minutes - Room 101 ",
-      time: "About 2 hours ago",
-      color: "bg-red-600",
-      buttonText: "join class",
-      categories:"Assessment"
+      categories: "Class"
     },
     {
       id: 3,
+      title: "Upcoming Class",
+      description: "Advance Mathematics Starts in 30 minutes - Room 101 ",
+      time: "About 2 hours ago",
+      color: "bg-red-600",
+      buttonText: "join class",
+      categories: "Assessment"
+    },
+    {
+      id: 4,
       title: "Grades Released",
       description: "Your Physics Lab Report has been graded: 65 / 100",
       time: "About 2 hours ago",
       color: "bg-green-600",
       buttonText: "View Grades",
-      categories:"Grades"
+      categories: "Grades"
     },
     {
-      id: 4,
+      id: 5,
       title: "System Maintenance",
       description: "Scheduled maintenance on the platform will occur tonight from 12 AM to 2 AM.",
       time: "About 3 days ago",
       color: "bg-yellow-600",
       buttonText: "Learn More",
-      categories:"Maintenance"
+      categories: "Maintenance"
     }
   ];
 
@@ -135,12 +137,28 @@ const Feed = () => {
     }
   ];
 
+  const [openNotification, setOpenNotification] = useState(false);
+   const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpenNotification(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+
+
   return (
     <div className=" font-poppins flex flex-col justify-center ">
       <div className=" px-2 lg:px-8 mb-2 lg:my-4 border-b-[1px] border-gray-300 flex  lg:justify-between items-center lg:h-16 bg-blue-700 text-white lg:bg-white lg:text-black ">
 
         <div className='my-2 w-full flex  h-full items-center '>
-          <div className='lg:hidden p-2 font-bold text-white'>
+          <div className='lg:hidden p-2 font-bold text-white' onClick={() => alert("Menu clicked!")}>
             <IoMenuOutline size={30} />
           </div>
           <div className='flex flex-col lg:flex-row  p-1'>
@@ -149,12 +167,13 @@ const Feed = () => {
               <h1 className='font-bold text-md capitalize lg:hidden flex'>Welcome Back Rolake</h1>
               <h1 className='font-bold text-2xl capitalize hidden lg:flex '>Welcome back, <span className='text-blue-600'>Rolake</span> !</h1>
               <h5 className='text-[11px]'>Here is what is happening with your studies today.</h5>
+
             </div>
           </div>
         </div>
         {/* <img src={eduverseLabsLogo} alt="Eduverse Labs Logo" className='max-w-20' /> */}
         <div className='flex items-center  '>
-          <div className='p-4 lg:p-2 '><AiFillBell size={25} /></div>
+          <div className='p-4 lg:p-2 cursor-pointer' onClick={() => setOpenNotification(true)} ><AiFillBell size={25} /></div>
           <div className='items-center  text-black px-1 mr-10  h-10 p-4 rounded-lg border border-black hidden lg:flex'>
             <p className='px-4 py-2  '>Rolake</p>
             <p className='  text-2xl text-[#0CF37F]'><BsDot size={35} />
@@ -163,7 +182,14 @@ const Feed = () => {
 
         </div>
       </div>
-      <div className=' px-3 lg:px-8 w-full '>
+      <div className=' px-3 lg:px-8 w-full relative '>
+        <div className='absolute right-0  mx-6 w-1/3  rounded-lg shadow-lg border border-gray-200 z-50'>
+          {/* <p className=' flex felx-wrap justify-center  text-gray-300 '><IoTriangleOutline />
+          </p> */}
+          <div className='bg-white p-2 rounded-lg shadow-md h-full w-full hidden'>
+            {<Notification />}
+          </div>
+        </div>
         <div className="grid grid-cols-2 lg:flex lg:flex-wrap gap-2 lg:gap-5  lg:my-4 w-full rounded-lg">
           {feedEvents.map((event) => (
             <div
@@ -198,17 +224,17 @@ const Feed = () => {
                   </div>
                   <div className='flex  justify-between items-center w-full px-2 lg:px-4'>
                     <div className='py-2 lg:py-1'>
-                    <div className=''>
-                      <h3 className='text-sm lg:text-[13px] font-bold'>{update.title}</h3>
-                      <p className='text-[13px] lg:py-1'>{update.time}</p>
-                    </div>
+                      <div className=''>
+                        <h3 className='text-sm lg:text-[13px] font-bold'>{update.title}</h3>
+                        <p className='text-[13px] lg:py-1'>{update.time}</p>
+                      </div>
 
-                    <p className='text-xs py-1 line-clamp-1 lg:line-clamp-none  '>{update.description}</p>
-                    <button className=' py-1 px-4 mt-1  bg-black rounded-md text-white capitalize text-sm hidden lg:block '>{update.buttonText}</button>
-                  </div>
-                  <div>
-                   <button className='bg-[#f4d6eb] text-black w-24 p-2 text-xs font-semibold rounded-md'>{update.categories}</button>  
-                  </div>
+                      <p className='text-xs py-1 line-clamp-1 lg:line-clamp-1'>{update.description}</p>
+                      <button className=' py-1 px-4 mt-1  bg-black rounded-md text-white capitalize text-sm hidden lg:block '>{update.buttonText}</button>
+                    </div>
+                    <div>
+                      <button className='bg-[#f4d6eb] text-black w-24 p-2 text-xs font-semibold rounded-md'>{update.categories}</button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -253,7 +279,7 @@ const Feed = () => {
               <div className='p-2 hidden lg:flex flex-col items-center justify-center mt-2'>
                 <div className='flex flex-col justify-start w-full items-start'>
                   <h1 className='font-bold text-xl'>Ask Eduai</h1>
-                <h3 className='text-[10px]'>Common Task & SHortcuts</h3>
+                  <h3 className='text-[10px]'>Common Task & SHortcuts</h3>
                 </div>
 
                 {/* divide section */}
