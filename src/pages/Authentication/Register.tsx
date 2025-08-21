@@ -1,7 +1,4 @@
 import React from 'react'
-import { PiStudentFill, PiGraduationCapFill } from "react-icons/pi";
-import { LiaChalkboardTeacherSolid } from "react-icons/lia";
-import { FaUserTie } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { UserMultiStepForm } from './UseMultiStepFile/UserMultiStepForm.tsx';
@@ -20,7 +17,7 @@ import admin from '../../Assets/images/admin.jpeg'
 
 const Register = () => {
   // Using UserMultiStepForm to manage steps
-  const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } = UserMultiStepForm([<UserForm />, <AddressFrom />, <Department />, <LearningGoals />])
+  const {  step, isFirstStep, isLastStep, back, next } = UserMultiStepForm([<UserForm />, <AddressFrom />, <Department />, <LearningGoals />])
   return (
     <>
       <div className="w-full h-screen flex flex-col">

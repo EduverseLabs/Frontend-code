@@ -21,7 +21,6 @@ import { AiFillBell } from 'react-icons/ai';
 import { BsDot } from 'react-icons/bs';
 import { FaPlus } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
-import { IoTriangleOutline } from "react-icons/io5";
 import Notification from './Notification.tsx';
 
 
@@ -167,7 +166,6 @@ const Feed = () => {
               <h1 className='font-bold text-md capitalize lg:hidden flex'>Welcome Back Rolake</h1>
               <h1 className='font-bold text-2xl capitalize hidden lg:flex '>Welcome back, <span className='text-blue-600'>Rolake</span> !</h1>
               <h5 className='text-[11px]'>Here is what is happening with your studies today.</h5>
-
             </div>
           </div>
         </div>
@@ -188,7 +186,7 @@ const Feed = () => {
             <Notification />
             </div>
         </div>
-        <div className="grid grid-cols-2 lg:flex lg:flex-wrap gap-2 lg:gap-5  lg:my-4 w-full rounded-lg">
+        <div className="grid grid-cols-2 lg:flex lg:flex-wrap gap-2 lg:gap-5  lg:my-1 w-full rounded-lg">
           {feedEvents.map((event) => (
             <div
               key={event.id}
@@ -203,35 +201,38 @@ const Feed = () => {
             </div>
           ))}
         </div>
-        <div className='flex flex-col lg:flex-row mt-3 gap-4 lg:gap-2'>
+
+        <div className='flex flex-col lg:flex-row mt-5 gap-4 lg:gap-2'>
           <div className='w-full lg:w-[48%] '>
             <div className='flex justify-between items-center mb-2'>
               <div>
-                <h1 className='font-bold text-[15px] lg:text-xl'>Recent Updates</h1>
-                <h5 className='text-[8px] lg:text-[10px] py-1'>Lastest Activties & Notifcations</h5>
+                <h1 className='font-semibold text-[15px] lg:text-xl'>Recent Updates</h1>
+                <h5 className='text-[8px] lg:text-[10px] mt-1 mb-1'>Lastest Activties & Notifcations</h5>
               </div>
               <div>
                 <button className='p-2  bg-black text-white rounded-md lg:hidden'>Ask Eduai</button>
               </div>
             </div>
-            <div className=' border-[1.5px] border-gray-200 h-[19rem] lg:h-[32rem]  rounded-lg  shadow-lg overflow-y-auto'>
+            <div className=' lg:border-[1.5px] lg:border-gray-200 mt-1 lg:h-[535px] bg-white py-2 px-1 rounded-lg lg:shadow-lg  overflow-y-auto'>
               {recentUpdates.map((update) => (
-                <div key={update.id} className='w-full h-24  lg:h-28 lg:bg-[#F7F6F6] border border-gray-300 rounded-xl flex    shadow-2xl shadow-[#F7F6F6] mb-2 lg:mb-2 lg:mt-1 '>
-                  <div className={`w-[6px] lg:w-1 h-full mr-2 rounded-l-xl ${update.color}`}>
+                <div key={update.id} className='w-full h-24  lg:h-24 lg:bg-[#F7F6F6] border border-gray-300 rounded flex shadow-[#F7F6F6] mb-2 lg:mb-2 lg:mt-1 '>
+                  <div className={`w-[6px] lg:w-1 h-full rounded-l-xl ${update.color} `}>
 
                   </div>
-                  <div className='flex  justify-between items-center w-full px-2 lg:px-4'>
-                    <div className='py-2 lg:py-1'>
-                      <div className=''>
-                        <h3 className='text-sm lg:text-[13px] font-bold'>{update.title}</h3>
-                        <p className='text-[13px] lg:py-1'>{update.time}</p>
+                  
+                  <div className='flex  justify-between items-center  w-full py-1 px-2 lg:px-2'>
+                    <div className='  h-full w-full '>
+                      <div className=' flex flex-col justify-between '>
+                        <h3 className='text-sm lg:text-[12px] font-semibold'>{update.title}</h3>
+                        <p className='text-[8px] lg:my-0'>{update.time}</p>
+                        <p className='text-[10px] py-1 line-clamp-1 lg:line-clamp-1 w-full h-auto '>{update.description}</p>
+
                       </div>
 
-                      <p className='text-xs py-1 line-clamp-1 lg:line-clamp-1'>{update.description}</p>
-                      <button className=' py-1 px-4 mt-1  bg-black rounded-md text-white capitalize text-sm hidden lg:block '>{update.buttonText}</button>
+                      <button className=' p-1  w-24 my-2  bg-black rounded-md text-white capitalize font-medium text-[10px] hidden lg:block '>{update.buttonText}</button>
                     </div>
                     <div>
-                      <button className='bg-[#f4d6eb] text-black w-24 p-2 text-xs font-semibold rounded-md'>{update.categories}</button>
+                      <button className='bg-[#f4d6eb] text-black w-24 p-2 text-[10px] font-medium rounded-md'>{update.categories}</button>
                     </div>
                   </div>
                 </div>
@@ -242,9 +243,9 @@ const Feed = () => {
           <div className='w-full lg:w-[48%]'>
             <div>
               <h1 className='font-bold text-[15px] text-xl'>Activities & Badges</h1>
-              <h5 className='lg:text-[10px] text-[8px]'>Catch up on activities and earn badges</h5>
+              <h5 className='text-[8px] lg:text-[10px] mt-1 mb-3 '>Catch up on activities and earn badges</h5>
             </div>
-            <div className='lg:border-[1.5px] lg:border-gray-200 mt-2 h-auto bg-white py-2 px-1 rounded-lg lg:shadow-lg '>
+            <div className='lg:border-[1.5px] lg:border-gray-200 mt-2 lg:h-[535px] bg-white py-2 px-1 rounded-lg lg:shadow-lg '>
 
               <div className="flex gap-2 p-1 w-full  overflow-x-auto overflow-y-hidden  whitespace-nowrap">
                 {activitiesAndBadges.map((activity) => (
@@ -265,8 +266,8 @@ const Feed = () => {
                     <div
                       className={`flex flex-col w-full  justify-between flex-1 ${activity.color} text-black`}
                     >
-                      <p className="p-1 text-xs text-wrap line-clamp-2">{activity.description}</p>
-                      <button className="bg-black text-white text-xs px-2 w-20 py-1 m-1 rounded">
+                      <p className="p-1 text-[10px] text-wrap line-clamp-2">{activity.description}</p>
+                      <button className="bg-black text-white text-[10px]  w-16 py-1 m-1 rounded-md">
                         View
                       </button>
                     </div>
