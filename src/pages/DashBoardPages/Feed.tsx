@@ -210,7 +210,7 @@ const Feed = () => {
                 <h5 className='text-[8px] lg:text-[10px] mt-1 mb-1'>Lastest Activties & Notifcations</h5>
               </div>
               <div>
-                <button className='p-2  bg-black text-white rounded-md lg:hidden'>Ask Eduai</button>
+                <button className='p-2  bg-black text-white text-[10px] rounded-md lg:hidden'>Ask Eduai</button>
               </div>
             </div>
             <div className=' lg:border-[1.5px] lg:border-gray-200 mt-1 lg:h-[535px] bg-white py-2 px-1 rounded-lg lg:shadow-lg  overflow-y-auto'>
