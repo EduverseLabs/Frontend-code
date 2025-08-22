@@ -42,6 +42,7 @@ const Notification = () => {
                 <span><BsBellFill size={20}/></span>
                 <h1 className='text-xl font-bold text-left p-2 my-2 '>  Notifications</h1>
             </div>
+            {/* <div>x</div> */}
             <div className=' max-h-[400px] overflow-y-auto'>
                 {notifications.length > 0 ? (
                     notifications.map(notification => (

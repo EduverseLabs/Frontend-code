@@ -1,5 +1,5 @@
-import React,{useState,useEffect, useRef } from 'react'
-import { IoMenuOutline } from "react-icons/io5";
+import React from 'react'
+// import { IoMenuOutline } from "react-icons/io5";
 
 // @ts-ignore
 import module1 from './../../Assets/images/module1.png';
@@ -17,11 +17,11 @@ import pending from '../../Assets/images/pending.png';
 import success from '../../Assets/images/success.png'
 // @ts-ignore
 import schedule from '../../Assets/images/schedule.png';
-import { AiFillBell } from 'react-icons/ai';
-import { BsDot } from 'react-icons/bs';
+// import { AiFillBell } from 'react-icons/ai';
+// import { BsDot } from 'react-icons/bs';
 import { FaPlus } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
-import Notification from './Notification.tsx';
+// import Notification from './Notification.tsx';
 
 
 const Feed = () => {
@@ -136,25 +136,25 @@ const Feed = () => {
     }
   ];
 
-  const [openNotification, setOpenNotification] = useState(false);
-   const dropdownRef = useRef(null);
+  // const [openNotification, setOpenNotification] = useState(false);
+  //  const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setOpenNotification(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  // // Close dropdown when clicking outside
+  // useEffect(() => {
+  //   const handleClickOutside = (e: MouseEvent) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+  //       setOpenNotification(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => document.removeEventListener("mousedown", handleClickOutside);
+  // }, []);
 
 
 
   return (
     <div className=" font-poppins flex flex-col justify-center ">
-      <div className=" px-2 lg:px-8 mb-2 lg:my-4 border-b-[1px] border-gray-300 flex  lg:justify-between items-center lg:h-16 bg-blue-700 text-white lg:bg-white lg:text-black ">
+      {/* <div className=" px-2 lg:px-8 mb-2 lg:my-4 border-b-[1px] border-gray-300 flex  lg:justify-between items-center lg:h-16 bg-blue-700 text-white lg:bg-white lg:text-black ">
 
         <div className='my-2 w-full flex  h-full items-center '>
           <div className='lg:hidden p-2 font-bold text-white' onClick={() => alert("Menu clicked!")}>
@@ -169,7 +169,7 @@ const Feed = () => {
             </div>
           </div>
         </div>
-        {/* <img src={eduverseLabsLogo} alt="Eduverse Labs Logo" className='max-w-20' /> */}
+        // <img src={eduverseLabsLogo} alt="Eduverse Labs Logo" className='max-w-20' /> 
         <div className='flex items-center  '>
           <div className='p-4 lg:p-2 cursor-pointer' onClick={() => setOpenNotification((prev)=>(!prev))} ><AiFillBell size={25} /></div>
           <div className='items-center  text-black px-1 mr-10  h-10 p-4 rounded-lg border border-black hidden lg:flex'>
@@ -179,13 +179,13 @@ const Feed = () => {
           </div>
 
         </div>
-      </div>
-      <div className=' px-3 lg:px-8 w-full relative '>
-        <div className=''>
+      </div> */}
+      <div className=' px-3 lg:px-6 w-full relative '>
+        {/* <div className=''>
           <div className={`absolute right-4 -top-4 w-[95%] h-[90%] md:w-1/2 lg:w-1/3  rounded-lg shadow-lg border border-gray-200 z-50 bg-white ${openNotification ? 'block' : 'hidden'}`} ref={dropdownRef}>
             <Notification />
             </div>
-        </div>
+        </div> */}
         <div className="grid grid-cols-2 lg:flex lg:flex-wrap gap-2 lg:gap-5  lg:my-1 w-full rounded-lg">
           {feedEvents.map((event) => (
             <div
