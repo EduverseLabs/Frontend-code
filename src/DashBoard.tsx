@@ -43,9 +43,14 @@ const DashBoard = () => {
                     <div className=' w-full h-full '>
                         <h1 className={`px-2 pt-6 text-2xl font-bold ${showHeading}`}>EduverseLabs</h1>
                         <ul className=" gap-2  my-6 w-full font-semibold">
+                            
                             {sideMenuData.map((item, index) => (
+                                
                                 <Link to={item.path} className=" ">
-                                    <li key={index} className="text-white  p-2 hover:bg-white hover:text-black cursor-pointer w-full rounded-md transition-colors">
+                                    <li key={index} className={` p-2 hover:bg-white hover:text-black cursor-pointer w-full rounded-md transition-colors  ${location.pathname === item.path
+                                        ? "bg-white text-black" // Active page
+                                        : "text-white hover:bg-white hover:text-black" // Inactive pages
+                                        }`} >
                                         <span className="text-lg">{item.name}</span>
                                     </li>
                                 </Link>
@@ -90,7 +95,7 @@ const DashBoard = () => {
                     <Outlet />
                     <div className=''>
                         {/* Notification dropdown */}
-                        <div className={`absolute right-0 -top-4 w-full h-full md:w-1/2 lg:w-1/3  rounded-lg shadow-lg border border-gray-200 z-50 bg-white ${openNotification ? 'block' : 'hidden'}`} ref={dropdownRef}>
+                        <div className={`absolute right-0 -top-4 w-full h-full md:w-1/2 lg:w-1/3  rounded-lg shadow-lg border border-gray-200 z-50 bg-white ${openNotification ? 'block' : 'hidden'} animate-bounce-right`} ref={dropdownRef}>
                             <Notification />
                         </div>
                     </div>

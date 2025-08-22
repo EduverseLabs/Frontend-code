@@ -38,7 +38,7 @@ const Notification = () => {
 
   return (
     <>
-        <div className='py-2 shadow-md rounded-lg w-full h-full mx-auto transition-all duration-500 delay-150'>
+        <div className='py-2 shadow-md rounded-lg w-full h-full mx-auto animate-bounce-in'>
             <div className='flex justify-between items-center '>
                 <div className='flex items-center px-2'>
                 <span><BsBellFill size={20}/></span>
