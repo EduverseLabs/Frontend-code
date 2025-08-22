@@ -2,6 +2,7 @@ import React from 'react'
 import { BsBellFill } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
+import { RiCloseLine } from "react-icons/ri";
 
 
 
@@ -37,12 +38,14 @@ const Notification = () => {
 
   return (
     <>
-        <div className='py-2 shadow-md rounded-lg w-full h-full mx-auto '>
-            <div className='flex items-center px-2'>
+        <div className='py-2 shadow-md rounded-lg w-full h-full mx-auto transition-all duration-500 delay-150'>
+            <div className='flex justify-between items-center '>
+                <div className='flex items-center px-2'>
                 <span><BsBellFill size={20}/></span>
                 <h1 className='text-xl font-bold text-left p-2 my-2 '>  Notifications</h1>
             </div>
-            {/* <div>x</div> */}
+            <div className='mr-2 cursor-pointer transition-transform duration-300 hover:rotate-90'><RiCloseLine size={30} /></div>
+            </div>
             <div className=' max-h-[400px] overflow-y-auto'>
                 {notifications.length > 0 ? (
                     notifications.map(notification => (
@@ -56,7 +59,7 @@ const Notification = () => {
                                     <span className='text-gray-500 text-[12px]'> {notification.time}</span>
                                     
                                 </div>
-                                <p><IoIosArrowDown /></p>
+                                <p className='transition-transform duration-300 hover:rotate-180' ><IoIosArrowDown /></p>
                             </div>
                             <h2 className='text-md font-semibold'>{notification.title}</h2>
                             <p className='text-sm text-gray-600 line-clamp-1'>{notification.description}</p>

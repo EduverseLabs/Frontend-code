@@ -36,7 +36,7 @@ const DashBoard = () => {
     return (
         <>
             <div className=' flex h-screen'>
-                <div className="bg-blue-600 w-2/12 p-4 h-screen text-white  hidden lg:flex lg:flex-row flex-col">
+                <div className="bg-blue-600 w-2/12 p-2  h-screen text-white  hidden lg:flex lg:flex-row flex-col">
                     <ul className="flex flex-col gap-2 my-6 w-full">
                         {sideMenuData.map((item, index) => (
                             <Link to={item.path} className="flex items-center">

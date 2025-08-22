@@ -136,56 +136,14 @@ const Feed = () => {
     }
   ];
 
-  // const [openNotification, setOpenNotification] = useState(false);
-  //  const dropdownRef = useRef(null);
-
-  // // Close dropdown when clicking outside
-  // useEffect(() => {
-  //   const handleClickOutside = (e: MouseEvent) => {
-  //     if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-  //       setOpenNotification(false);
-  //     }
-  //   };
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => document.removeEventListener("mousedown", handleClickOutside);
-  // }, []);
 
 
 
   return (
-    <div className=" font-poppins flex flex-col justify-center ">
-      {/* <div className=" px-2 lg:px-8 mb-2 lg:my-4 border-b-[1px] border-gray-300 flex  lg:justify-between items-center lg:h-16 bg-blue-700 text-white lg:bg-white lg:text-black ">
-
-        <div className='my-2 w-full flex  h-full items-center '>
-          <div className='lg:hidden p-2 font-bold text-white' onClick={() => alert("Menu clicked!")}>
-            <IoMenuOutline size={30} />
-          </div>
-          <div className='flex flex-col lg:flex-row  p-1'>
-            <h1 className='lg:hidden text-xl font-bold'>EduVerse</h1>
-            <div>
-              <h1 className='font-bold text-md capitalize lg:hidden flex'>Welcome Back Rolake</h1>
-              <h1 className='font-bold text-2xl capitalize hidden lg:flex '>Welcome back, <span className='text-blue-600'>Rolake</span> !</h1>
-              <h5 className='text-[11px]'>Here is what is happening with your studies today.</h5>
-            </div>
-          </div>
-        </div>
-        // <img src={eduverseLabsLogo} alt="Eduverse Labs Logo" className='max-w-20' /> 
-        <div className='flex items-center  '>
-          <div className='p-4 lg:p-2 cursor-pointer' onClick={() => setOpenNotification((prev)=>(!prev))} ><AiFillBell size={25} /></div>
-          <div className='items-center  text-black px-1 mr-10  h-10 p-4 rounded-lg border border-black hidden lg:flex'>
-            <p className='px-4 py-2  '>Rolake</p>
-            <p className='  text-2xl text-[#0CF37F]'><BsDot size={35} />
-            </p>
-          </div>
-
-        </div>
-      </div> */}
+    
+    <>
       <div className=' px-3 lg:px-6 w-full relative '>
-        {/* <div className=''>
-          <div className={`absolute right-4 -top-4 w-[95%] h-[90%] md:w-1/2 lg:w-1/3  rounded-lg shadow-lg border border-gray-200 z-50 bg-white ${openNotification ? 'block' : 'hidden'}`} ref={dropdownRef}>
-            <Notification />
-            </div>
-        </div> */}
+        
         <div className="grid grid-cols-2 lg:flex lg:flex-wrap gap-2 lg:gap-5  lg:my-1 w-full rounded-lg">
           {feedEvents.map((event) => (
             <div
@@ -289,15 +247,12 @@ const Feed = () => {
                   >
                     <div className="absolute inset-0 bg-[black/15]"></div> {/* overlay */}
                     <span className="relative z-10">
-
-
                     </span>
-
                   </div>
                   <div className='flex justify-between items-center w-full  h-14  '>
 
                     <button className='bg-[#D9D9D9] p-2 ml-2 rounded-md'><FaPlus size={12} /></button>
-                    <input type="text" className='w-3/4 mx-2 p-1 bg-[#F7F6F6] rounded-sm outline outline-[#F7F6F6] ' />
+                    <input type="text" className='w-[80%] mx-2 p-1 bg-[#F7F6F6] rounded-sm outline outline-[#F7F6F6] ' placeholder='how va boss ?' />
                     <button className='text-[#F6F6F6] rounded-md bg-[#0843F7] p-2'><IoMdSend size={12} /></button>
                   </div>
 
@@ -308,7 +263,7 @@ const Feed = () => {
         </div>
       </div>
 
-    </div>
+    </>
   )
 }
 
