@@ -1,7 +1,4 @@
 import React from 'react'
-import { PiStudentFill, PiGraduationCapFill } from "react-icons/pi";
-import { LiaChalkboardTeacherSolid } from "react-icons/lia";
-import { FaUserTie } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 // @ts-ignore
 import studentImg from '../../Assets/images/student.jpeg'
@@ -73,9 +70,11 @@ const Login = () => {
                         <p className="text-sm text-blue-500 right-0 relative">Forget Password</p>
                       </div>
                       <div className="my-4 lg:my-10">
+                        <Link to='/feed'>
                         <button className="bg-blue-500 p-3 w-full rounded-lg text-white">
-                          <Link to='/dashboard'>Sign in</Link>
+                          Sign in
                         </button>
+                        </Link>
                       </div>
                       <div className=" justify-end flex lg:hidden ">
                         <p>No Account ?<span className="text-blue-500 text-sm ">Sign up</span></p>

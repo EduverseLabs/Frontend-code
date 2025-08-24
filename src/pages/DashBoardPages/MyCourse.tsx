@@ -55,12 +55,12 @@ const MyCourse = () => {
   return (
     <>
       <div className='h-full w-full px-3 lg:px-6'>
-        <div className='flex  my-6'>
+        <div className='flex my-6'>
           <div className='w-full '>
             <h1 className='font-medium text-2xl lg:text-lg '>My <span className='text-[#0843F7]'>Courses</span> !</h1>
             <h3 className='text-sm hidden lg:block'>continue your learning journey</h3>
           </div>
-          <div className='w-[52%] bg-[#F7F6F6] p-2 rounded ml-20 lg:flex items-center px-2 outline outline-[#F7F6F6] shadow-[-4px_0_6px_rgba(0,0,0,0.2) shadow-[0_-4px_6px_rgba(0,0,0,0.2)] hidden'>
+          <div className='w-[52%] bg-[#F7F6F6] p-2 rounded  lg:flex items-center px-2 outline outline-[#F7F6F6] shadow-[-4px_0_6px_rgba(0,0,0,0.2) shadow-[0_-4px_6px_rgba(0,0,0,0.2)] hidden'>
             <input type="text" className='w-[90%] outline-none h-full bg-[#F7F6F6] px-4' placeholder='search' />
             <button className='p-2'><IoIosSearch size={25} /></button>
           </div>
