@@ -252,7 +252,7 @@ const Feed = () => {
                   <div className='flex justify-between items-center w-full  h-14  '>
 
                     <button className='bg-[#D9D9D9] p-2 ml-2 rounded-md'><FaPlus size={12} /></button>
-                    <input type="text" className='w-[80%] mx-2 p-1 bg-[#F7F6F6] rounded-sm outline outline-[#F7F6F6] ' placeholder='how va boss ?' />
+                    <input type="text" className='w-[80%] mx-2 p-1 bg-[#F7F6F6] rounded-sm outline outline-[#F7F6F6] ' placeholder='Type Your questions here ?' />
                     <button className='text-[#F6F6F6] rounded-md bg-[#0843F7] p-2'><IoMdSend size={12} /></button>
                   </div>
 

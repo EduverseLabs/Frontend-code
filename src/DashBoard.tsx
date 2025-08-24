@@ -4,6 +4,10 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import { IoMenuOutline } from 'react-icons/io5';
 import React, { useState, useRef, useEffect } from 'react';
 import Notification from './pages/DashBoardPages/Notification.tsx';
+// import { HiOutlineLogout } from "react-icons/hi";
+import { IoLogOut } from "react-icons/io5";
+
+
 
 
 
@@ -34,33 +38,41 @@ const DashBoard = () => {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-    let showHeading = location.pathname === '/feed' ? 'block' : 'hidden';
+
     return (
         <>
             <div className=' flex h-screen'>
                 {/* menu section */}
-                <div className="bg-blue-600 w-2/12 p-2  h-screen text-white  hidden lg:flex lg:flex-row flex-col">
+                <div className="bg-[#0843F7] w-[18%] p-2  h-screen text-white  hidden lg:flex lg:flex-row flex-col ">
                     <div className=' w-full h-full '>
-                        <h1 className={`px-2 pt-6 text-2xl font-bold ${showHeading}`}>EduverseLabs</h1>
-                        <ul className=" gap-2  my-6 w-full font-semibold">
-                            
-                            {sideMenuData.map((item, index) => (
-                                
-                                <Link to={item.path} className=" ">
-                                    <li key={index} className={` p-2 hover:bg-white hover:text-black cursor-pointer w-full rounded-md transition-colors  ${location.pathname === item.path
-                                        ? "bg-white text-black" // Active page
-                                        : "text-white hover:bg-white hover:text-black" // Inactive pages
-                                        }`} >
-                                        <span className="text-lg">{item.name}</span>
-                                    </li>
-                                </Link>
-                            ))}
+                        <h1 className={`px-2 my-14 text-3xl font-bold transition-opacity  ${location.pathname === '/feed' ? 'block ' : 'hidden'}`}>EduverseLabs</h1>
+                        <ul className=" gap-2  my-6 w-full font-normal mt-4">
 
+                            <div className='h-3/4 w-full '>
+                                {sideMenuData.map((item, index) => (
+
+                                    <Link to={item.path} className=" ">
+                                        <li key={index} className={` p-2 mt-1 hover:bg-white hover:text-black cursor-pointer w-full rounded-md transition-colors  ${location.pathname === item.path
+                                            ? "bg-white text-black" // Active page
+                                            : "text-white hover:bg-white hover:text-black" // Inactive pages
+                                            }`} >
+                                            <span className="text-lg">{item.name}</span>
+                                        </li>
+                                    </Link>
+
+                                ))}
+                                <Link to="/" className=" ">
+                                <li className=' bottom-16 p-2 flex  gap-2 hover:bg-white hover:text-black rounded-md  w-[16.7%] fixed '><span ><IoLogOut size={25} />
+
+                                </span><span>LogOut</span></li></Link>
+                            </div>
+
+                            
                         </ul>
                     </div>
                 </div>
 
-                <div className="w-full lg:w-10/12 h-screen">
+                <div className="w-full lg:w-10/12 h-screen overflow-auto">
                     {/* header section */}
                     <div className=" px-2 lg:px-7 mb-2 lg:my-4 border-b-[1px] border-gray-300 flex  lg:justify-between items-center lg:h-16 bg-blue-700 text-white lg:bg-white lg:text-black ">
 
@@ -70,11 +82,15 @@ const DashBoard = () => {
                             </div>
                             <div className='flex flex-col lg:flex-row lg:items-center w-full lg:w-auto  '>
                                 <h1 className='lg:hidden text-xl font-bold'>EduVerse</h1>
-                                <div className='w-full'>
-                                    <h1 className='font-bold text-md capitalize lg:hidden flex'>Welcome Back Rolake</h1>
-                                    <h1 className='font-bold text-2xl capitalize hidden lg:flex '>Welcome back, <span className='text-blue-600'>Rolake</span> !</h1>
-                                    <h5 className='text-[11px]'>Here is what is happening with your studies today.</h5>
-                                </div>
+                                {location.pathname === '/feed' ?
+                                    (<div className='w-full'>
+                                        <h1 className='font-bold text-md capitalize lg:hidden flex'>Welcome Back Rolake</h1>
+                                        <h1 className='font-bold text-2xl capitalize hidden lg:flex '>Welcome back, <span className='text-blue-600'>Rolake</span> !</h1>
+                                        <h5 className='text-[11px]'>Here is what is happening with your studies today.</h5>
+                                    </div>
+                                    ) : (
+                                        <h1 className='font-bold text-2xl capitalize hidden lg:flex gap-2'>Eduverse <span className='text-blue-600'>Labs</span></h1>
+                                    )}
                             </div>
                         </div>
                         {/* // <img src={eduverseLabsLogo} alt="Eduverse Labs Logo" className='max-w-20' />  */}
@@ -92,7 +108,9 @@ const DashBoard = () => {
 
                         </div>
                     </div>
-                    <Outlet />
+                    <div className=''>
+                        <Outlet />
+                    </div>
                     <div className=''>
                         {/* Notification dropdown */}
                         <div className={`absolute right-0 -top-4 w-full h-full md:w-1/2 lg:w-1/3  rounded-lg shadow-lg border border-gray-200 z-50 bg-white ${openNotification ? 'block' : 'hidden'} animate-bounce-right`} ref={dropdownRef}>
