@@ -18,7 +18,6 @@ const sideMenuData = [
     { name: 'Attendance', path: '/attendance' },
     { name: 'Certification', path: '/certification' },
     { name: 'Messages', path: '/messages' },
-    { name: 'Course', path: '/course' },
     { name: 'Settings', path: '/settings' },
     { name: 'Tools', path: '/tools' },
 
@@ -27,12 +26,16 @@ const sideMenuData = [
 const DashBoard = () => {
     const location = useLocation();
     const [openNotification, setOpenNotification] = useState(false);
+    const [openMenu, setOpenMenu] = useState(false)
     const dropdownRef = useRef(null);
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
                 setOpenNotification(false);
+            }
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+                setOpenMenu(false);
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
@@ -43,9 +46,9 @@ const DashBoard = () => {
         <>
             <div className=' flex h-screen'>
                 {/* menu section */}
-                <div className="bg-[#0843F7] w-[18%] p-2  h-screen text-white  hidden lg:flex lg:flex-row flex-col ">
+                <div className={`bg-[#0843F7] p-2 h-screen w-full text-white transition-all duration-300 lg:relative ${openMenu ? "w-[50%] flex absolute z-50" : "w-0 hidden"} lg:w-[18%] lg:flex lg:flex-col `} >
                     <div className=' w-full h-full '>
-                        <h1 className={`px-2 my-14 text-3xl font-bold transition-opacity  ${location.pathname === '/feed' ? 'block ' : 'hidden'}`}>EduverseLabs</h1>
+                        <h1 className={`px-2 my-14 lg:text-3xl text-2xl  font-bold transition-opacity  ${location.pathname === '/feed' ? 'block ' : 'hidden'}`}>EduverseLabs</h1>
                         <ul className=" gap-2  my-6 w-full font-normal mt-4">
 
                             <div className='h-3/4 w-full '>
@@ -62,22 +65,22 @@ const DashBoard = () => {
 
                                 ))}
                                 <Link to="/" className=" ">
-                                <li className=' bottom-16 p-2 flex  gap-2 hover:bg-white hover:text-black rounded-md  w-[16.7%] fixed '><span ><IoLogOut size={25} />
+                                    <li className=' bottom-16 p-2 flex  gap-2 hover:bg-white hover:text-black rounded-md  w-[16.7%] fixed '><span ><IoLogOut size={25} />
 
-                                </span><span>LogOut</span></li></Link>
+                                    </span><span>LogOut</span></li></Link>
                             </div>
 
-                            
+
                         </ul>
                     </div>
                 </div>
 
-                <div className="w-full lg:w-10/12 h-screen overflow-auto">
+                <div className="w-full lg:w-10/12 h-screen overflow-auto animate-bounce-right">
                     {/* header section */}
                     <div className=" px-2 lg:px-7 mb-2 lg:my-4 border-b-[1px] border-gray-300 flex  lg:justify-between items-center lg:h-16 bg-blue-700 text-white lg:bg-white lg:text-black ">
 
                         <div className='my-2 w-full flex  h-full items-center '>
-                            <div className='lg:hidden p-2 font-bold text-white' onClick={() => alert("Menu clicked!")}>
+                            <div className='lg:hidden p-2 font-bold text-white' onClick={() => setOpenMenu(!openMenu)}>
                                 <IoMenuOutline size={30} />
                             </div>
                             <div className='flex flex-col lg:flex-row lg:items-center w-full lg:w-auto  '>
@@ -113,8 +116,8 @@ const DashBoard = () => {
                     </div>
                     <div className=''>
                         {/* Notification dropdown */}
-                        <div className={`absolute right-0 -top-4 w-full h-full md:w-1/2 lg:w-1/3  rounded-lg shadow-lg border border-gray-200 z-50 bg-white ${openNotification ? 'block' : 'hidden'} animate-bounce-right`} ref={dropdownRef}>
-                            <Notification />
+                        <div className={`absolute right-0 -top-4 w-full h-full md:w-1/2 lg:w-1/3  rounded-lg shadow-lg border border-gray-200 z-50  bg-white ${openNotification ? 'block' : 'hidden'} animate-bounce-right`} ref={dropdownRef}>
+                            <Notification setOpenNotification={setOpenNotification} />
                         </div>
                     </div>
 

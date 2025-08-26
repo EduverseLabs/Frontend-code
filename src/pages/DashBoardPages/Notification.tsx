@@ -1,12 +1,12 @@
 import React from 'react'
-import { BsBellFill } from "react-icons/bs";
+// import { BsBellFill } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiCloseLine } from "react-icons/ri";
 
 
 
-const Notification = () => {
+const Notification = ({setOpenNotification}) => {
     interface Notification {
         id: number;
         title: string;
@@ -38,15 +38,15 @@ const Notification = () => {
 
   return (
     <>
-        <div className='py-2 shadow-md rounded-lg w-full h-full mx-auto '>
+        <div className='py-2 px-1 shadow-md rounded-lg w-full h-full mx-auto '>
             <div className='flex justify-between items-center '>
                 <div className='flex items-center px-2'>
-                <span><BsBellFill size={20}/></span>
-                <h1 className='text-xl font-bold text-left p-2 my-2 '>  Notifications</h1>
+                {/* <span><BsBellFill size={20}/></span> */}
+                <h1 className='text-3xl font-bold text-left p-2 my-2 '>  Notifications</h1>
             </div>
-            <div className='mr-2 cursor-pointer transition-transform duration-300 hover:rotate-90'><RiCloseLine size={30} /></div>
+            <div className='mr-2 cursor-pointer transition-transform duration-300 hover:rotate-90'> <button onClick={()=>setOpenNotification(false) }><RiCloseLine size={30} /></button></div>
             </div>
-            <div className=' max-h-[400px] overflow-y-auto'>
+            <div className=' max-h-[400px] overflow-y-auto transition-all duration-300'>
                 {notifications.length > 0 ? (
                     notifications.map(notification => (
                         <div key={notification.id} className='border-b p-4 my-2 hover:bg-gray-300 rounded-md cursor-pointer transition-colors'>
